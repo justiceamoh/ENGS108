@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same} 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{problem}[2][Problem:]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%If you want to title your bold things something different just make another thing exactly like this but replace "problem" with the name of the thing you want, like theorem or lemma or whatever
+ 
+\begin{document}
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+%Good resources for looking up how to do stuff:
+%Binary operators: http://www.access2science.com/latex/Binary.html
+%General help: http://en.wikibooks.org/wiki/LaTeX/Mathematics
+%Or just google stuff
+ 
+\title{Homework 2}
+\author{ENGS 108}
+\maketitle
+
+\pagebreak
+\section{Logistic Regression} 
+\textbf{[25 points + 10 additional implementation points]} 
+This assignment offers you two choices, one is an applied implementation that follows the class material, and the other one is an complete implementation for those interested in deeper understanding of logistic regression. The complete implementation will be awarded with extra-credit points which will be counted towards a grade-boost over the course of the term. 
+
+For this problem, you will need to use the logistic regression.
+You will evaluate your algorithm on the so-called \textit{parkinsons} dataset contained in \textit{parkinsons.mat}, which we
+obtained from the UCI Machine Learning Repository. The description of the dataset can be found \href{https://archive.ics.uci.edu/ml/datasets/parkinsons+telemonitoring}{here} (\textit{hint}: in MATLAB, you can check the description of the features using \textit{parkinsons.names} command). The objective is to recognize healthy people from those with Parkinson's disease using a series of biomedical voice measurements.
+
+This assignment offers two options, one is an applied implementation that follows the class material, and the other one is an complete implementation for those interested in deeper understanding of logistic regression. 
+
+\subsection{Applied implementation}
+\begin{problem}{Programming: Naive Logistic Regression [13 points]}
+Train the logistic regression via gradient ascent using a small fixed learning rate $\alpha = 10^{-6}$. Your solution should report both the training and the text error, the number of iterations needed to reach convergence, and you should plot a curve of log likelihood as a function of the number of iterations (\textit{hint:} if you have implemented the functions correctly, the log likelihood curve should be monotonically increasing).
+\end{problem}
+
+\begin{problem}{Programming: Line search optimization [8 points]}
+Train the logistic regression using \href{https://en.wikipedia.org/wiki/Line_search}{line search algorithm} (aka newton line-search) to refine the step size $\alpha$ adaptively at each iteration. The line search method requires an initial value $\alpha_0$. This value should be chosen fairly large, e.g., $\alpha_0 = 10^{-4}$. Your solution should report, for both the version using the fixed $\alpha$ (as coded for the previous question) and the one using line search, the following information: the training and the test errors, the number of iterations needed to reach convergence, and the log likelihood as a function of the number of iterations. 
+\end{problem}
+
+Based on the results, answer the questions below:
+
+\begin{problem}{Writing [2 points]}
+Compare the training and test errors of the two variants of gradient ascent. Are the errors different in the two cases? Explain why or why not.
+\end{problem}
+
+\begin{problem}{Writing [2 points]}
+Now compare the two log likelihood curves. Does the method using line search converge faster or slower than the version using a fixed step size? Explain the result.
+\end{problem}
+
+
+\pagebreak
+
+\end{document}
