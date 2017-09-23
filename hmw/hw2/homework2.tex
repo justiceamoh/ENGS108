@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
-\usepackage{hyperref}
+\usepackage{hyperref,enumerate}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -34,10 +34,23 @@
 \pagebreak
 
 \section{$K$ means and $K$ nearest neighbors clustering}
+\begin{problem}{Clustering [13 points]}
+In this problem, you will solve a clustering task using the k-Means and k-NN algorithms you learned in class. The dataset for this problem has been provided in the \textit{clustering} folder as csv files. There are 3,100 examples in the dataset. Each entry has two features $(x_1,x_2)$ and a target cluster $y$. The dataset has been split into two sets: \textit{train\_data.csv} and \textit{test\_data.csv}. Use the training set solely for all analysis, but report performance results on the test set.
 
+\begin{enumerate}
+    \item A reasonable first step in every machine learning task is to understand the dataset at hand. Proceed to explore this problem's dataset by addressing the following:
+    \begin{enumerate}
+            \item Choose a suitable type of plot and visualize the training data.
+            \item From your plot, how many clusters, $k$, are in the dataset? 
+            \item What is the dataset distribution across the $k$ clusters? Use a histogram to illustrate this.
+            \item Is the training data balanced?
+    \end{enumerate}
 
+    \item Using the k-Means algorithm, implement a clustering model for the training data. You can use Matlab, Python (Scikit-learn) or any other tools at your disposal. Be sure to include code or screenshots of the implementation. Report the clustering accuracy of your model on the test set.
 
-
+    \item Repeat the above but using the k-Nearest Neighbors algorithm. Note that $k$ here refers to the number of neighbors, not clusters. By repeated training, find the optimal $k$ that produces a similar number of clusters as you first estimated. Report the clustering accuracy of this model on the test set. 
+\end{enumerate}
+\end{problem}
 
 
 \pagebreak
