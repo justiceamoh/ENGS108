@@ -56,13 +56,29 @@ In this problem, you will solve a clustering task using the k-Means and k-NN alg
 \pagebreak
 
 
-\section{Decision Tree Classification}
+\section{Decision Tree and SVM classifiers}
+\begin{problem}{Classification [25 points]}
+In this problem you will use Decision Trees and SVM methods to classify the quality of red and white vinho verde wine samples based on their physicochemical properties. The datasets for this problem are in the \textit{classification} folder as csv files. There are training and test datasets for both white and red wine samples (total of 4 .csv files.) 
 
-
-
-
-
-
+\begin{enumerate}
+	\item First let's explore the datasets through the following exercises. Note that we cannot plot the data in a meaningful way given that  number of features exceed the physical dimensions:
+	\begin{enumerate}
+		\item How many datapoints are in the \textit{red\_train.csv} and \textit{white\_train.csv} files.
+		\item How many features are available for each datapoint?
+		\item What are the average \textit{alcohol} and \textit{pH} values for red and white training samples?
+	\end{enumerate}
+	\item Decision Trees:
+	\begin{enumerate}
+		\item Implement a decision tree model for the \textit{red\_train} data and report the mean accuracy or score of your model on the test dataset.
+		\item There are a lot of parameters that can be tuned to improve your model, one of which is the criteria for ending the splitting process. Two common ways of terminating the splitting process are \textit{maximum depth} of the tree or \textit{minimum number of samples} left. Repeat the process in \textit{part a} using different values for maximum depth of the tree and plot a graph of accuracy vs. tree depth. 
+	\end{enumerate}
+	\item Support Vector Machines (SVM)
+	\begin{enumerate}
+		\item Using the same dataset for red wine samples, build a SVM classifier and report its mean accuracy on the test dataset. 
+		\item Depending on your data,  a linear classifier might not be able to separate your datapoints in that case you would want to increase the complexity of your classifier by choosing different \textit{kernels}. This can be done by selecting different kernels such as \textit{Linear, Polynomial or Radial Basis Function(RBF)}. Redo the previous part with "Linear" and "RBF" kernels and report the accuracy in each case. Does using a more complex classifier improve the accuracy of your model?
+	\end{enumerate}
+\end{enumerate}
+\end{problem}
 
 \pagebreak
 
