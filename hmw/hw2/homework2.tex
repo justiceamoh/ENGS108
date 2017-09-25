@@ -74,7 +74,12 @@ For this problem, you will need to use the logistic regression.
 You will evaluate your algorithm on the so-called \textit{parkinsons} dataset contained in \textit{parkinsons.mat}, which we
 obtained from the UCI Machine Learning Repository. The description of the dataset can be found \href{https://archive.ics.uci.edu/ml/datasets/parkinsons+telemonitoring}{here} (\textit{hint}: in MATLAB, you can check the description of the features using \textit{parkinsons.names} command). The objective is to recognize healthy people from those with Parkinson's disease using a series of biomedical voice measurements.
 
-This assignment offers two options, one is an applied implementation that follows the class material, and the other one is an complete implementation for those interested in deeper understanding of logistic regression. 
+This assignment offers two options, however \textbf{only one needs to be solved for the full credit}.
+\begin{enumerate}
+\item \textbf{applied implementation} that follows the class material
+\item \textbf{complete implementation} for those interested in deeper understanding of logistic regression and gradient ascent algorithm. Should it turn out successful, this implementation will be awarded with 10 additional extra-credit points
+\end{enumerate}
+
 
 \subsection{Applied implementation}
 \begin{problem}{Programming: Naive Logistic Regression [13 points]}
@@ -97,5 +102,39 @@ Now compare the two log likelihood curves. Does the method using line search con
 
 
 \pagebreak
+
+\subsection{Complete implementation}
+\begin{problem}{Programming: gradient ascent [13 points]}
+Implement a gradient ascent algorithm maximizing the logistic regression log-likelihood function (you are not allowed to use MATLAB built-in functionalities for gradient ascent optimization). The method requires selecting a value for the learning rate α: for now, use a fixed small value (e.g., $\alpha = 10^{−6}$).
+
+To do so, you should implement following functions:
+\begin{itemize}
+\item \textit{initialize} initializes the weights for maximum log likelihood training. Your task is to code for the purpose of the assignment, this can be random, although there are better heuristics.
+\item \textit{predict} computes the label predictions and the class posterior probabilities for the input examples in matrix $X$ using the parameter vector $\theta$.
+
+\item \textit{loglik} computes the log likelihood of the training data given the model $\theta$. Add the Matlab constant eps (i.e., a tiny positive number) to the probabilities before taking the log in order to avoid numerical issues. [Hint: you can call \textit{predict} inside this function].
+
+\item \textit{gradient} computes the gradient of the log likelihood at the current $\theta$. [Hint: use \textit{predict} inside this function].
+
+\item \textit{error} calculates the misclassification rate by comparing the pre- dicted labels to the true labels Y. The misclassification rate is given by the number of misclassified examples over the total number of examples.
+\end{itemize}
+
+After implementing the above optimization functions, you should be able to implement the training for your own logistic regression algorithm. It should report both the training and the test error, the number of iterations needed to reach convergence, and will plot a curve of the log likelihood as a function of the number
+\end{problem}
+
+\begin{problem}{Programming: Line search optimization [8 points]}
+Train the logistic regression using \href{https://en.wikipedia.org/wiki/Line_search}{line search algorithm} (aka newton line-search) to refine the step size $\alpha$ adaptively at each iteration. The line search method requires an initial value $\alpha_0$. This value should be chosen fairly large, e.g., $\alpha_0 = 10^{-4}$. Your solution should report, for both the version using the fixed $\alpha$ (as coded for the previous question) and the one using line search, the following information: the training and the test errors, the number of iterations needed to reach convergence, and the log likelihood as a function of the number of iterations. 
+\end{problem}
+
+Based on the results, answer the questions below:
+
+\begin{problem}{Writing [2 points]}
+Compare the training and test errors of the two variants of gradient ascent. Are the errors different in the two cases? Explain why or why not.
+\end{problem}
+
+\begin{problem}{Writing [2 points]}
+Now compare the two log likelihood curves. Does the method using line search converge faster or slower than the version using a fixed step size? Explain the result.
+\end{problem}
+
 
 \end{document}
