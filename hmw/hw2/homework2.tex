@@ -1,0 +1,207 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{hyperref,enumerate}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same} 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{problem}[2][Problem:]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%If you want to title your bold things something different just make another thing exactly like this but replace "problem" with the name of the thing you want, like theorem or lemma or whatever
+ 
+\begin{document}
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+%Good resources for looking up how to do stuff:
+%Binary operators: http://www.access2science.com/latex/Binary.html
+%General help: http://en.wikibooks.org/wiki/LaTeX/Mathematics
+%Or just google stuff
+
+
+\title{ENGS/QBS 108 Fall 2017 Assignment 2}
+\author{Due October 3, 2017 \\ Instructors: George Cybenko and Saeed Hassanpour}
+\date{}
+\maketitle
+
+\pagebreak
+
+%\section{$K$ means clustering and $K$ nearest neighbors classification}
+\begin{problem}{$K$-Means Clustering [15 points]}
+In this problem, you will solve a clustering task using the $k$-means algorithm and an associated classification task using $k$ nearest neighbors algorithm, both of which you learned in class. 
+The dataset for this problem is a synthetic two-dimensional dataset \href{https://canvas.dartmouth.edu/files/3128646/download?download_frd=1}{{synth\_all.csv}}.
+%Unlike most real clustering files, these datapoints have ground truth clusters, and are two dimensional and are therefore easy to visualize.
+%There are 3,100 examples in the dataset. 
+Each entry has two features $(x_1,x_2)$. 
+%For this problem you may safely ignore the $y$ column.
+%The dataset has been split into two sets: 
+%\textit{train\_data.csv} and \textit{test\_data.csv}. 
+%Use the training set solely for all analysis, but report performance results on the test set.
+
+\begin{enumerate}
+    \item {[5 points]} A reasonable first step in every machine learning task is to understand the dataset at hand. Proceed to explore this problem's dataset by addressing the following:
+    \begin{enumerate}
+            \item Choose a suitable type of plot and visualize the training data.
+            \item From your plot, how many clusters, $k$, would you estimate are represented in the dataset? \label{pt:clusters}
+            \item What is the dataset distribution across the $k$ clusters? Use a histogram to illustrate this.
+%            \item Is the training data balanced?
+    \end{enumerate}
+
+    \item {[10 points]} 
+    \begin{enumerate}
+    	\item Using the $k$-Means algorithm, implement a clustering model. You can use Matlab, Python (Scikit-learn) or any other tools at your disposal. Be sure to include code. 
+	\item Train the clustering model on several reasonable values of $k$, taking into account your visual inspection from \ref{pt:clusters}. Plot the Bayesian information criterion (BIC), Akaike information criterion (AIC), and gap statistic scores for each value of $k$. 
+	\item Which value is optimal? How does it compare to your visual inspection?
+%	\item Use the validation dataset to tune the value of $k$. Report the clustering accuracy of your model versus the target clusters (i.e. the number of points whose target cluster index disagrees with the majority of other points within the found cluster). Plot the accuracy of each setting of $k$ against each other. How does the optimal setting compare to the answer you found in \ref{pt:clusters}? \label{pt:meanval}
+%	\item Report the clustering accuracy of your model on the testing dataset using the optimal value of $k$ that you found in \ref{pt:clusters}.
+    \end{enumerate}
+
+%    \item {[10 points]} 
+%    \begin{enumerate}
+%    	\item Train an implementation of the $k$-Nearest Neighbors algorithm on the training dataset. Note that $k$ here refers to the number of neighbors, not clusters. 
+%	\item Report the classification accuracy of this model on the validation set for different values for $k$. What is the best setting for $k$ that you can find? 
+%	\item Report the classification accuracy of this model on the test set. 
+%    \end{enumerate}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{$K$-NN Classification [10 points]}
+In this problem, you will utilize data deriving from the same synthetic dataset as above. 
+This time, the data has been separated into \href{https://canvas.dartmouth.edu/files/3128315/download?download_frd=1}{synth\_train.csv}, \href{https://canvas.dartmouth.edu/files/3128316/download?download_frd=1}{synth\_valid.csv} and \href{https://canvas.dartmouth.edu/files/3128314/download?download_frd=1}{synth\_test.csv} files. 
+Furthermore, each sample now includes a class label found in the $y$ column. 
+These class labels come from the set $\{1, 2, \dots, 31\}$.
+
+\begin{enumerate}
+    \item {[10 points]} 
+    \begin{enumerate}
+    	\item Train an implementation of the $k$-Nearest Neighbors algorithm on the training dataset. Note that $k$ here refers to the number of neighbors, not clusters. 
+	\item Report the classification accuracy of this model on the validation set for different values for $k$. Plot these accuracies against $k$ and report the optimal value for $k$. \label{pt:nnval}
+	\item Report the classification accuracy of this model on the data in \emph{synth\_test.csv} using the optimal value of $k$ that you found in \ref{pt:nnval}.
+    \end{enumerate}
+\end{enumerate}
+\end{problem}
+
+\pagebreak
+
+
+%\section{Decision Tree classification}
+\begin{problem}{Decision Tree Classification [20 points]}
+In this problem you will use decision trees  to classify the quality of red vinho verde wine samples based on their physicochemical properties. 
+%The datasets for this problem are in the \textit{classification} folder as csv files. 
+%There are training and test datasets for both white and red wine samples (total of 4 .csv files.) 
+The dataset has been separated into \href{https://canvas.dartmouth.edu/files/3128324/download?download_frd=1}{red\_train.csv}, \href{https://canvas.dartmouth.edu/files/3128325/download?download_frd=1}{red\_valid.csv} and \href{https://canvas.dartmouth.edu/files/3128323/download?download_frd=1}{red\_test.csv} files. 
+For all of these files, the rightmost column (``quality'') is the target label for each datapoint.
+All other columns are features. 
+
+\begin{enumerate}
+	\item {[5 points]} First let's explore the datasets through the following exercises. Note that we cannot plot the data in a meaningful way given that  number of features exceed the physical dimensions:
+	\begin{enumerate}
+		\item How many datapoints are in the training, validation, and testing sets?
+		\item How many features are available for each datapoint?
+		\item What are the average \textit{alcohol} and \textit{pH} values for \emph{training} samples?
+	\end{enumerate}
+	\item {[15 points]} Decision Trees:
+	\begin{enumerate}
+		\item Implement a binary decision tree model for the training data. You may use whatever libraries you prefer. \label{pt:tree}
+		\item There are a number of hyperparameters that can be tuned to improve your model, one of which is the criteria for ending the splitting process. Two common ways of terminating the splitting process are \textit{maximum depth} of the tree or \textit{minimum number of samples} left. Tune the \textit{maximum depth} of the tree by reporting the accuracy of the classifier in \ref{pt:tree} on the validation set for different settings of \textit{maximum depth}. Plot your findings. \label{pt:treeval}
+		\item Use the optimum setting of \textit{maximum depth} found in \ref{pt:treeval} to report the accuracy of the classifier on the test dataset. 
+	\end{enumerate}
+%	\item Support Vector Machines (SVM)
+%	\begin{enumerate}
+%		\item Using the same dataset for red wine samples, build a SVM classifier and report its mean accuracy on the test dataset. 
+%		\item Depending on your data,  a linear classifier might not be able to separate your datapoints in that case you would want to increase the complexity of your classifier by choosing different \textit{kernels}. This can be done by selecting different kernels such as \textit{Linear, Polynomial or Radial Basis Function(RBF)}. Redo the previous part with "Linear" and "RBF" kernels and report the accuracy in each case. Does using a more complex classifier improve the accuracy of your model?
+%	\end{enumerate}
+\end{enumerate}
+\end{problem}
+
+\pagebreak
+
+%\section{Logistic Regression} 
+\begin{problem}{Logistic Regression [25 points]}
+For this problem, you will need to use the logistic regression.
+You will evaluate your algorithm on a dataset listing biometric measurements on patients suffering from Parkinson's Disease 
+The description of the dataset can be found \href{https://archive.ics.uci.edu/ml/datasets/parkinsons+telemonitoring}{here} (\textit{hint}: in MATLAB, you can check the description of the features using \textit{parkinsons.names} command). 
+The objective is to recognize healthy people from those with Parkinson's disease using a series of biomedical voice measurements.
+The dataset has been separated into \href{https://canvas.dartmouth.edu/files/3128597/download?download_frd=1}{parkinsons\_train.csv} and \href{https://canvas.dartmouth.edu/files/3128596/download?download_frd=1}{parkinsons\_test.csv} files. 
+For each sample, the rightmost (``total\_UPDRS'') column is the target value.
+All other columns are features.
+
+\begin{enumerate}
+	\item {[10 points]} Train a logistic regression model using whatever toolkit you prefer on the training data. Use a fixed learning rate $\alpha = 10^{-6}$. Report the training error and the number of iterations needed before convergence. \label{pt:1}
+	\item {[5 points]} Plot the curve of the loglikelihood of your model as a function of the number of iterations (\textit{hint:} the log likelihood curve should be monotonically increasing). \label{pt:2}
+	\item {[10 points]} Repeat \ref{pt:1} and \ref{pt:2}, but this time train the logistic regression using the \href{https://en.wikipedia.org/wiki/Line_search}{line search algorithm} (aka newton line-search) to refine the step size $\alpha$ adaptively at each iteration. The line search method requires an initial value $\alpha_0$. This value should be chosen fairly large, e.g., $\alpha_0 = 10^{-4}$.
+	\item {[5 points]} How do the training and testing errors of the two approaches compare? How do the loglikelihood curves compare? Does one method converge faster than the other? If so, why?
+\end{enumerate}
+\end{problem}
+
+%This assignment offers two options, however \textbf{only one needs to be solved for the full credit}.
+%\begin{enumerate}
+%\item \textbf{applied implementation} that follows the class material
+%\item \textbf{complete implementation} for those interested in deeper understanding of logistic regression and gradient ascent algorithm. Should it turn out successful, this implementation will be awarded with 10 additional extra-credit points
+%\end{enumerate}
+%
+
+%\subsection{Applied implementation}
+%\begin{problem}{Programming: Naive Logistic Regression [13 points]}
+%Train the logistic regression via gradient ascent using a small fixed learning rate $\alpha = 10^{-6}$. Your solution should report both the training and the text error, the number of iterations needed to reach convergence, and you should plot a curve of log likelihood as a function of the number of iterations (\textit{hint:} if you have implemented the functions correctly, the log likelihood curve should be monotonically increasing).
+%\end{problem}
+%
+%\begin{problem}{Programming: Line search optimization [8 points]}
+%Train the logistic regression using \href{https://en.wikipedia.org/wiki/Line_search}{line search algorithm} (aka newton line-search) to refine the step size $\alpha$ adaptively at each iteration. The line search method requires an initial value $\alpha_0$. This value should be chosen fairly large, e.g., $\alpha_0 = 10^{-4}$. Your solution should report, for both the version using the fixed $\alpha$ (as coded for the previous question) and the one using line search, the following information: the training and the test errors, the number of iterations needed to reach convergence, and the log likelihood as a function of the number of iterations. 
+%\end{problem}
+%
+%Based on the results, answer the questions below:
+%
+%\begin{problem}{Writing [2 points]}
+%Compare the training and test errors of the two variants of gradient ascent. Are the errors different in the two cases? Explain why or why not.
+%\end{problem}
+%
+%\begin{problem}{Writing [2 points]}
+%Now compare the two log likelihood curves. Does the method using line search converge faster or slower than the version using a fixed step size? Explain the result.
+%\end{problem}
+
+
+%\pagebreak
+%
+%\subsection{Complete implementation}
+%\begin{problem}{Programming: gradient ascent [13 points]}
+%Implement a gradient ascent algorithm maximizing the logistic regression log-likelihood function (you are not allowed to use MATLAB built-in functionalities for gradient ascent optimization). The method requires selecting a value for the learning rate α: for now, use a fixed small value (e.g., $\alpha = 10^{−6}$).
+%
+%To do so, you should implement following functions:
+%\begin{itemize}
+%\item \textit{initialize} initializes the weights for maximum log likelihood training. Your task is to code for the purpose of the assignment, this can be random, although there are better heuristics.
+%\item \textit{predict} computes the label predictions and the class posterior probabilities for the input examples in matrix $X$ using the parameter vector $\theta$.
+%
+%\item \textit{loglik} computes the log likelihood of the training data given the model $\theta$. Add the Matlab constant eps (i.e., a tiny positive number) to the probabilities before taking the log in order to avoid numerical issues. [Hint: you can call \textit{predict} inside this function].
+%
+%\item \textit{gradient} computes the gradient of the log likelihood at the current $\theta$. [Hint: use \textit{predict} inside this function].
+%
+%\item \textit{error} calculates the misclassification rate by comparing the pre- dicted labels to the true labels Y. The misclassification rate is given by the number of misclassified examples over the total number of examples.
+%\end{itemize}
+%
+%After implementing the above optimization functions, you should be able to implement the training for your own logistic regression algorithm. It should report both the training and the test error, the number of iterations needed to reach convergence, and will plot a curve of the log likelihood as a function of the number
+%\end{problem}
+%
+%\begin{problem}{Programming: Line search optimization [8 points]}
+%Train the logistic regression using \href{https://en.wikipedia.org/wiki/Line_search}{line search algorithm} (aka newton line-search) to refine the step size $\alpha$ adaptively at each iteration. The line search method requires an initial value $\alpha_0$. This value should be chosen fairly large, e.g., $\alpha_0 = 10^{-4}$. Your solution should report, for both the version using the fixed $\alpha$ (as coded for the previous question) and the one using line search, the following information: the training and the test errors, the number of iterations needed to reach convergence, and the log likelihood as a function of the number of iterations. 
+%\end{problem}
+%
+%Based on the results, answer the questions below:
+%
+%\begin{problem}{Writing [2 points]}
+%Compare the training and test errors of the two variants of gradient ascent. Are the errors different in the two cases? Explain why or why not.
+%\end{problem}
+%
+%\begin{problem}{Writing [2 points]}
+%Now compare the two log likelihood curves. Does the method using line search converge faster or slower than the version using a fixed step size? Explain the result.
+%\end{problem}
+
+
+\end{document}
