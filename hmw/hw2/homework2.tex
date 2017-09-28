@@ -50,14 +50,14 @@ Each entry has two features $(x_1,x_2)$.
     \begin{enumerate}
             \item Choose a suitable type of plot and visualize the training data.
             \item From your plot, how many clusters, $k$, would you estimate are represented in the dataset? \label{pt:clusters}
-            \item What is the dataset distribution across the $k$ clusters? Use a histogram to illustrate this.
+%            \item What is the dataset distribution across the $k$ clusters? Use a histogram to illustrate this.
 %            \item Is the training data balanced?
     \end{enumerate}
 
     \item {[10 points]} 
     \begin{enumerate}
     	\item Using the $k$-Means algorithm, implement a clustering model. You can use Matlab, Python (Scikit-learn) or any other tools at your disposal. Be sure to include code. 
-	\item Train the clustering model on several reasonable values of $k$, taking into account your visual inspection from \ref{pt:clusters}. Plot the Bayesian information criterion (BIC), Akaike information criterion (AIC), and gap statistic scores for each value of $k$. 
+	\item Train the clustering model on several reasonable values of $k$, taking into account your visual inspection from \ref{pt:clusters}. Plot the Bayesian information criterion (BIC) and Akaike information criterion (AIC) for each value of $k$. 
 	\item Which value is optimal? How does it compare to your visual inspection?
 %	\item Use the validation dataset to tune the value of $k$. Report the clustering accuracy of your model versus the target clusters (i.e. the number of points whose target cluster index disagrees with the majority of other points within the found cluster). Plot the accuracy of each setting of $k$ against each other. How does the optimal setting compare to the answer you found in \ref{pt:clusters}? \label{pt:meanval}
 %	\item Report the clustering accuracy of your model on the testing dataset using the optimal value of $k$ that you found in \ref{pt:clusters}.
