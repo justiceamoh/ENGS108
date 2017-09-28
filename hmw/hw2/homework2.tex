@@ -126,11 +126,11 @@ All other columns are features.
 %\section{Logistic Regression} 
 \begin{problem}{Logistic Regression [25 points]}
 For this problem, you will need to use the logistic regression.
-You will evaluate your algorithm on a dataset listing biometric measurements on patients suffering from Parkinson's Disease 
-The description of the dataset can be found \href{https://archive.ics.uci.edu/ml/datasets/parkinsons+telemonitoring}{here} (\textit{hint}: in MATLAB, you can check the description of the features using \textit{parkinsons.names} command). 
+You will evaluate your algorithm on a dataset listing biometric measurements on patients suffering from Parkinson's Disease.
+The description of the dataset can be found \href{https://archive.ics.uci.edu/ml/datasets/Parkinsons}{here}.
 The objective is to recognize healthy people from those with Parkinson's disease using a series of biomedical voice measurements.
 The dataset has been separated into \href{https://canvas.dartmouth.edu/files/3128597/download?download_frd=1}{parkinsons\_train.csv} and \href{https://canvas.dartmouth.edu/files/3128596/download?download_frd=1}{parkinsons\_test.csv} files. 
-For each sample, the rightmost (``total\_UPDRS'') column is the target value.
+For each sample, the (``status'') column is the target value, with 0 indicating the patient is healthy and 1 indicating that the patient is diagnosed with Parkinson's Disease. 
 All other columns are features.
 
 \begin{enumerate}
