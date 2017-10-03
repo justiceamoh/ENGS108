@@ -4,6 +4,6 @@
 *.out
 *.synctex.gz
 *~
-.ipynb*.vagrant/
+.ipynb*
+.vagrant*
 Miniconda*
-*~
