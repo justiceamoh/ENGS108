@@ -18,6 +18,7 @@ chmod +x $miniconda
 ./$miniconda -b -p /home/vagrant/anaconda
 
 echo 'export PATH="/home/vagrant/anaconda/bin:$PATH"' >> /home/vagrant/.bashrc
+echo 'alias jpy="jupyter notebook --no-browser --ip=0.0.0.0 --port=8888"' >> /home/vagrant/.bashrc
 source /home/vagrant/.bashrc
 chown -R vagrant:vagrant /home/vagrant/anaconda
 /home/vagrant/anaconda/bin/conda install conda-build anaconda-client anaconda-build -y -q
