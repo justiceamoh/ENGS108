@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{hyperref,enumerate}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same} 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{problem}[2][Problem:]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%If you want to title your bold things something different just make another thing exactly like this but replace "problem" with the name of the thing you want, like theorem or lemma or whatever
+ 
+\begin{document}
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+%Good resources for looking up how to do stuff:
+%Binary operators: http://www.access2science.com/latex/Binary.html
+%General help: http://en.wikibooks.org/wiki/LaTeX/Mathematics
+%Or just google stuff
+
+
+\title{ENGS/QBS 108 Fall 2017 Assignment 3}
+\author{Due October 3, 2017 \\ Instructors: George Cybenko and Saeed Hassanpour}
+\date{}
+\maketitle
+
+\pagebreak
+
+%\section{$K$ means clustering and $K$ nearest neighbors classification}
+\begin{problem}{$K$-Means Clustering [65 points]}
+In this problem, you will explore and attempt to solve a realistic machine learning problem. 
+The \href{https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/data}{Porto Seguro dataset} includes a number of anonymized features of vehicle drivers collected over the course of a year, as well as a target flag indicating whether the driver filled an insurance claim during the year.
+Your task is to predict whether a driver will fill an insurance claim given their feature vector. 
+
+\begin{enumerate}
+    \item {[10 points]} 
+    Data analysis is an important first step. Proceed to explore this problem's dataset by addressing the following:
+    \begin{enumerate}
+            \item What are the dimensions of the training and testing datasets?
+            \item Plot a histogram for 
+    \end{enumerate}
+
+    \item {[20 points]} 
+    Apply SVMs to the problem:
+    \begin{enumerate}
+    	\item Separate the training data into a $k$-fold cross validation testing framework for $k$=10. 
+    	\item Train SVM models using your validation framework. Try a few different kernels. What kernel yields the best performance?
+	\item Apply your best model to the testing set. Report your classification accuracy. 
+    \end{enumerate}
+
+    \item {[25 points]} 
+    Apply a (simple) deep neural net to the problem:
+    \begin{enumerate}
+    	\item Construct a deep neural network (layers? convolution?)
+	\item Train your model. Report your performance on the training data.
+	\item Apply your model to the testing set. Report your classification accuracy. 
+    \end{enumerate}
+
+\end{enumerate}
+\end{problem}
+
+
+
+
+\end{document}
