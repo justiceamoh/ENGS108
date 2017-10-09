@@ -27,41 +27,64 @@
 
 
 \title{ENGS/QBS 108 Fall 2017 Assignment 3}
-\author{Due October 17, 2017 \\ Instructors: George Cybenko and Saeed Hassanpour}
+\author{Due October 17, 2017 \\ Instructors: George Cybenko and Saeed Hassanpour \\ Prepared by: Benjamin Priest}
 \date{}
 \maketitle
 
 \pagebreak
 
 %\section{$K$ means clustering and $K$ nearest neighbors classification}
-\begin{problem}{$K$-Means Clustering [65 points]}
-In this problem, you will explore and attempt to solve a realistic machine learning problem. 
+\begin{problem}{Porto Seguro Dataset [70 points]}
+In this problem, you will explore and attempt to solve a realistic machine learning problem hosted on the \href{https://www.kaggle.com/}{Kaggle} competition platform.
+In order to download the data and access other competition resources, you will need to create a kaggle account. 
 The \href{https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/data}{Porto Seguro dataset} includes a number of anonymized features of vehicle drivers collected over the course of a year, as well as a target flag indicating whether the driver filled an insurance claim during the year.
-Your task is to predict whether a driver will fill an insurance claim given their feature vector. 
+Your task is to train models to predict driver safety using this data. 
 
 \begin{enumerate}
     \item {[10 points]} 
-    Data analysis is an important first step. Proceed to explore this problem's dataset by addressing the following:
+    Data analysis is an important first step. 
+    The first two fields, ``id'' and ``target'' are an index and the label, respectively. 
+    The other 57 fields are features with partially anonymized names. 
+    The elements of the ``target'' column are in $\{0,1\}$, where $1$ indicates the driver filed an insurance claim during the year.
+    Proceed to explore this problem's dataset by addressing the following:
     \begin{enumerate}
             \item What are the dimensions of the training and testing datasets?
-            \item Plot a histogram for 
+            \item Features ending in ``\_cat'' are categorical, meaning that their entries are categories rather than numerals. How many categories does each such feature include?
+            \item Features ending in ``\_bin'' are binary, taking entries in $\{0,1\}$. Are any of these features ``one-hot'' encodings of a single categorical feature? If so, which ones, and how many categories does it include? 
+            \item Explore the \href{https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion}{discussion} page of the competition. What else can you learn about the features or dataset from what others have done? Include code if relevant.
     \end{enumerate}
 
     \item {[20 points]} 
-    Apply SVMs to the problem:
+    In this part, you will apply an SVM to solve a classification problem using the Porto Seguro dataset.
+    You will design an SVM that reads a feature vector and predicts whether that driver will output a 
     \begin{enumerate}
-    	\item Separate the training data into a $k$-fold cross validation testing framework for $k$=10. 
-    	\item Train SVM models using your validation framework. Try a few different kernels. What kernel yields the best performance?
+    	\item Separate the training data into a \href{https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation}{$k$-fold cross validation} testing framework for $k$=4. 
+    	\item Train SVM models using your validation framework. Try a few different kernels. What kernel yields the best performance? Note: Training will most likely take a \emph{long} time. 
 	\item Apply your best model to the testing set. Report your classification accuracy. 
     \end{enumerate}
 
-    \item {[25 points]} 
-    Apply a (simple) deep neural net to the problem:
+    \item {[20 points]} 
+    In this part, you will attempt proscribed a proscribed solution to the competition. 
+    You will build a (simple) deep neural net whose desired output is a probability that a driver will file a claim given the input feature vector. 
+    You will report results in terms of a \href{https://en.wikipedia.org/wiki/Receiver_operating_characteristic}{ROC curve}, where you vary the decision threshold between 0 and 1. 
     \begin{enumerate}
-    	\item Construct a deep neural network (layers? convolution?)
-	\item Train your model. Report your performance on the training data.
-	\item Apply your model to the testing set. Report your classification accuracy. 
+    	\item Construct a deep neural network with three dense layers of 100, 50, and 20 neurons, respectively, as well as a single sigmoidally activated output layer.
+	\item Train your model using \href{https://en.wikipedia.org/wiki/Cross_entropy}{cross-entropy loss}. Report your ROC curve on the training data.
+	\item Apply your model to the testing set. Report your ROC curve.
     \end{enumerate}
+
+    \item {[20 points]} 
+    In this part, you will attempt your own solution to the competition. 
+    You may use any model with which you are familiar.
+    You are free to browse \href{https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/kernels}{existing kernels} for ideas, but your work should ultimately be your own. 
+    Report your results in terms of ROC curves. 
+    \begin{enumerate}
+    	\item Construct a model of your choice.
+	\item Train your model and report your ROC curve on the training data.
+	\item Apply your model to the testing set. Report your ROC curve.
+	\item How does your solution compare to the solution in part 3? Explain the comparison. 
+    \end{enumerate}
+
 
 \end{enumerate}
 \end{problem}
