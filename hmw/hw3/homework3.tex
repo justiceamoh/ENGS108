@@ -34,7 +34,7 @@
 \pagebreak
 
 %\section{$K$ means clustering and $K$ nearest neighbors classification}
-\begin{problem}{Porto Seguro Dataset [75 points]}
+\begin{problem}{Porto Seguro Dataset [65 points]}
 In this problem, you will explore and attempt to solve a realistic machine learning problem hosted on the \href{https://www.kaggle.com/}{Kaggle} competition platform.
 In order to download the data and access other competition resources, you will need to create a kaggle account. 
 The \href{https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/data}{Porto Seguro dataset} includes a number of anonymized features of vehicle drivers collected over the course of a year, as well as a target flag indicating whether the driver filled an insurance claim during the year.
@@ -54,16 +54,16 @@ Your task is to train models to predict driver safety using this data.
             \item Explore the \href{https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion}{discussion} page of the competition. What else can you learn about the features or dataset from what others have done? Include code if relevant.
     \end{enumerate}
 
-    \item {[20 points]} 
-    In this part, you will apply an SVM to solve a classification problem using the Porto Seguro dataset.
-    You will design an SVM that reads a feature vector and predicts whether that driver will file an insurance claim.
-    \begin{enumerate}
-    	\item Hold out 30\% of the training dataset as the test set for this problem. Separate the remaining training data into a \href{https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation}{$k$-fold cross validation} testing framework with $k$=4. \label{2a}
-    	\item Train SVM models using your validation framework. Try a few different kernels. What kernel yields the best classification accuracy? Note: Training will most likely take a \emph{long} time. 
-	\item Apply your best model to the testing set you partitioned out in \ref{2a}. Report your classification accuracy. 
-    \end{enumerate}
+%    \item {[20 points]} 
+%    In this part, you will apply an SVM to solve a classification problem using the Porto Seguro dataset.
+%    You will design an SVM that reads a feature vector and predicts whether that driver will file an insurance claim.
+%    \begin{enumerate}
+%    	\item Hold out 30\% of the training dataset as the test set for this problem. Separate the remaining training data into a \href{https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation}{$k$-fold cross validation} testing framework with $k$=4. \label{2a}
+%    	\item Train SVM models using your validation framework. Try a few different kernels. What kernel yields the best classification accuracy? Note: Training will most likely take a \emph{long} time. 
+%	\item Apply your best model to the testing set you partitioned out in \ref{2a}. Report your classification accuracy. 
+%    \end{enumerate}
 
-    \item {[20 points]} \label{3}
+    \item {[25 points]} \label{3}
     In this part, you will attempt proscribed a proscribed solution to the competition. 
     You will build a (simple) deep neural net whose desired output is a probability that a driver will file a claim given the input feature vector. 
     You will report results in terms of a \href{https://en.wikipedia.org/wiki/Receiver_operating_characteristic}{ROC curve}, where you vary the decision threshold between 0 and 1. 
@@ -75,7 +75,7 @@ Your task is to train models to predict driver safety using this data.
 	\item Retrain your model on the \emph{whole} training set and apply your model to the testing set. The output format is specified in sample\_submission.csv. \href{https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/submit}{Submit} your output to Kaggle. What performance does it return?
     \end{enumerate}
 
-    \item {[20 points]} \label{4}
+    \item {[25 points]} \label{4}
     In this part, you will attempt your own solution to the competition. 
     Repeat problem \ref{3} with a model of your choice.
     You are free to browse \href{https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/kernels}{existing kernels} for ideas, but your work should ultimately be your own. 
