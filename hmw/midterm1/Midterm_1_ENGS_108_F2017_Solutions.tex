@@ -1,0 +1,377 @@
+\documentclass[11pt]{report}
+\usepackage{epsfig}
+\usepackage{latexsym} % aggiunto per il latex 2e
+\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage[linewidth=2pt]{mdframed}
+\usepackage{array}
+
+\usepackage{amsmath,amssymb,latexsym,enumerate}
+
+%\usepackage[mtbold,subscriptcorrection]{mathtime}
+\usepackage{bm,mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{xspace}
+
+\usepackage[T1]{fontenc}
+
+\textheight 22cm \textwidth 16cm \topmargin -1cm \oddsidemargin
+0cm \evensidemargin 0cm
+
+\newcommand{\bR}{\ensuremath{\mathbf{R}}\xspace} % real numbers
+\newcommand{\br}{\ensuremath{\mathbf{r}}\xspace} % a vector
+\newcommand{\bid}{\ensuremath{\mathbf{1}}\xspace} % a vector
+\newcommand{\bsg}{\ensuremath{\mathbf{\sigma}}\xspace} % a vector
+\newcommand{\bp}{\ensuremath{\mathbf{p}}\xspace} % a vector
+\newcommand{\bx}{\ensuremath{\mathbf{x}}\xspace} % a vector
+\newcommand{\by}{\ensuremath{\mathbf{y}}\xspace}
+\newcommand{\bv}{\ensuremath{\mathbf{v}}\xspace} % a vector
+\newcommand{\bw}{\ensuremath{\mathbf{w}}\xspace} % a vector
+\newcommand{\bu}{\ensuremath{\mathbf{u}}\xspace} % a vector
+\newcommand{\bz}{\ensuremath{\mathbf{0}}\xspace} % a vector
+\newcommand{\bmm}{\ensuremath{\mathbf{m}}\xspace} % a vector
+
+\newcommand{\N}{\mbox{\bf N}}
+\newcommand{\Z}{\mbox{\bf Z}}
+\newcommand{\R}{\mbox{\bf R}}
+\newcommand{\Q}{\mbox{\bf Q}}
+\newcommand{\I}{i}
+\newcommand{\lcm}{\mbox{\rm lcm}}
+\newcommand{\perdef}{\mbox{\em per}}
+\newcommand{\per}{\mbox{per}}
+\newcommand{\deterdef}{\mbox{\em det}}
+\newcommand{\deter}{\mbox{det}}
+\newcommand{\separa}{\rule{0pt}{2em}}
+%
+\def\mod#1{\mid\! #1\! \mid}
+\def\modd#1{\mid\!\! #1\!\! \mid}
+\def\sign#1{{\rm sign}(#1)}
+%
+%\def\bx{{\rm\bf b}}
+%\def\yx{{\rm\bf y}}
+\def\PI#1{\left\lceil{#1}\right\rceil}
+\def\PIF#1{\left\lfloor{#1}\right\rfloor}
+\def\IGNORE#1{}
+%
+\newtheorem{definition}{Definition}
+\newtheorem{defin}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{theo}[theorem]{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+%
+\newenvironment{proof}{\smallskip\noindent{\bf Proof. }}
+{\hfill{$\Box$}\medskip}
+\newenvironment{conj}{\smallskip\noindent{\bf Conjecture.}}
+{\hfill{$\Box$}\medskip}
+\newenvironment{obs}{\smallskip\noindent{\bf Observation.}}
+{\hfill{$\Box$}\medskip}
+
+\pagestyle{fancy}
+\hyphenation{auto-encoders}
+
+\begin{document}
+\lhead{Name:~~~~~~~~~~~~~~~~}
+\rfoot{ENGS/QBS 108 Midterm 2017}
+\lfoot{(20 questions, 5 pages)}
+\begin{center}\bf  {\large ENGS 108 Fall 2017 Midterm}\\
+October 18, 2017 \\
+Instructors: George Cybenko and Saeed Hassanpour
+\end{center}
+
+\noindent Time allotted:  60 minutes.
+There are 20 problems.  Each problem is worth 5 points.  Points will be subtracted for incorrect answers if multiple choices are made but incorrect.
+The exam is open computer, open book and open notes.  {\bf No Internet 
+or phone access is allowed.  }
+{\bf Please be mindful that some students may not have taken this exam yet, due to illness or other circumstance.  Do not discuss the
+exam with anyone other than the teaching assistants and professor until the instructors tell you that you can.} 
+
+
+{\bf  Dartmouth's Academic Honor Principle is to be observed during this exam.}
+
+\begin{enumerate}
+\item
+Which machine learning evaluation metric is not appropriate for a skewed test set? (Circle the correct answer.)
+\begin{enumerate}
+\item Specificity
+\item Accuracy
+\item F1 Score
+\item Recall
+\end{enumerate}
+\begin{mdframed}
+Answer: b
+\end{mdframed}
+\item
+You are using a Convolutional Neural Network (CNN) to determine whether an image is that of a dog, a cat, or a duck.  These are the only possibilities. How many neurons should your final layer contain, and what final activation function should you use? (Circle all answers that are correct.)
+\begin{enumerate}
+\item 3, ReLU
+\item 1, Sigmoid
+\item 3. SoftMax
+\item 1, SoftMax
+\item 3, Sigmoid
+\item 1, ReLU
+\end{enumerate}
+\begin{mdframed}
+Answer: c
+\end{mdframed}
+\item
+The real-valued function $f$ has $n$ inputs and is differentiable. When can the gradient of $f$, $\nabla f$, be approximated as follows:
+$$ \nabla f(x) \approx \frac{f(x+d)-f(x)}{\delta}$$ 
+where $d$ is  is the $n$-dimensional vector $d = [ \delta, \delta, \delta,...,\delta]^T$? (Circle all answers that are correct.)
+\begin{enumerate}
+\item Only when $n=1$.
+\item Only when $\delta > 0$.
+\item Only when $f$ is a sigmoidal activation function.
+\item Always.
+\item Never.
+\end{enumerate}
+\begin{mdframed}
+Answer: a
+\end{mdframed}
+\item
+Which model is different from the others? (Circle all answers that are correct.)
+\begin{enumerate}
+\item MaxEnt classifier
+\item Polytomous logistic regression
+\item Linear regression 
+\item Conditional maximum entropy classifier
+\end{enumerate}
+
+\begin{mdframed}
+Answer: c
+\end{mdframed}
+
+\item
+Identify {\em all} the {\em parametric} machine learning methods in the list below. (Circle all answers that are correct.)
+\begin{enumerate}
+\item
+Support Vector Machine
+\item
+Shallow neural network
+\item
+Decision trees
+\item
+K-Nearest Neighbors
+\item
+K-means
+\item
+Logistic regression
+\end{enumerate}
+\begin{mdframed}
+Answer: b,f
+\end{mdframed}
+\item
+The class of real-valued functions, $\mathscr{F}$, consists of indicator functions of pairs of intervals.  That is,
+$$\mathscr{F} = \{ I_{[a,b]} +I_{[c,d]} -I_{[a,b] \cap [c,d]}~ |~ -\infty < a \leq b < \infty,  -\infty < c \leq d < \infty\}.$$
+Here $I_{[a,b]}(x)=1$ if $a \leq x \leq b$ and $I_{[a,b]}(x)=0$ otherwise.
+The Vapnik-Chervonenkis Dimension of $\mathscr{F}$ is:  (Enter a number in (a) or circle (b).)
+\begin{enumerate}
+\item Write your answer here:  \underline{~~~~~~~~~~~~~~~~~~~~~~}.  
+\item Uncomputable or undefined because $\mathscr{F}$ has an infinite number of members.
+\end{enumerate}
+\begin{mdframed}
+Answer: 4
+\end{mdframed}
+\item
+Which statements are correct about using AIC and BIC in clustering? (Circle all answers that are correct.)
+\begin{enumerate}
+\item AIC penalizes the complexity of the model less strongly than BIC.
+\item AIC penalizes the complexity of the model more strongly than BIC.
+\item AIC penalizes the complexity of the model the same as BIC.
+\item AIC is used in an unsupervised fashion; but, BIC is used in a supervised mode.
+\end{enumerate}
+\begin{mdframed}
+Answer: a
+\end{mdframed}
+\item
+Given a bound, $k$, on the number of  splits allowed in a decision tree,
+an optimal decision tree with no more than $k$ splits can always be efficiently computed for a classification problem.
+(Here ``optimal'' means the total number of misclassified training samples is minimal and ``efficiently'' means using polynomial resources in terms of $k$, the number of features, and samples in the training set.) (Circle your answer.)
+\begin{enumerate}
+\item  True
+\item  False
+\end{enumerate}
+\begin{mdframed}
+Answer: b
+\end{mdframed}
+\item
+Linear Support Vector Machines (LSVM), Nonlinear Support Vector Machines (NSVM), autoencoders (AE),  nonlinear coordinate transformations (NCT) and Principal Component Analysis (PCA) are techniques that can change the dimensionality of the features used in machine learning problems.
+Put a check into each box that is possible and typically used in that manner.
+\begin{center}
+\begin{tabular}{|p{6cm}|c|c|c|c|c|}
+\hline
+~&LSVM&NSVM&AE&NCT&PCA\\
+\hline
+Transform low dimensional features to higher dimensional features&~&~&~&~&~\\
+\hline
+Transform high dimensional features to lower dimensional features&~&~&~&~&~\\
+\hline
+\end{tabular}
+\end{center}
+\begin{mdframed}
+Answer:
+\begin{center}
+\begin{tabular}{|p{6cm}|c|c|c|c|c|}
+\hline
+~&LSVM&NSVM&AE&NCT&PCA\\
+\hline
+Transform low dimensional features to higher dimensional features&X&X&~&X&~\\
+\hline
+Transform high dimensional features to lower dimensional features&~&~&X&~X&X\\
+\hline
+\end{tabular}
+\end{center}
+\end{mdframed}
+\item
+What is the simplest method to increase the generalizability of a language model? (Circle all answers that are correct.)
+\begin{enumerate}
+\item  L1 regularization
+\item  Backoff Smoothing
+\item  Laplace smoothing
+\item  All of the above
+\end{enumerate}
+\begin{mdframed}
+Answer: c
+\end{mdframed}
+\item
+Stochastic gradient descent is a powerful optimization technique because: (Circle all answers that are correct.)
+\begin{enumerate}
+\item  It can handle noise in the training data.
+\item  It can converge using only an appropriate approximation of the true gradient.
+\item It is computationally more efficient and easier to implement in machine learning problems with large training sets.
+\item  It converges in fewer iterations that Newton's algorithm that uses the Hessian of the loss/error function.
+\end{enumerate}
+\begin{mdframed}
+Answer: b,c
+\end{mdframed}
+
+\item
+Which techniques/concepts are {\em not} used in backpropagation for deep neural networks, except possibly for validating correctness? (Circle all answers that are correct.)
+\begin{enumerate}
+\item  Local gradients
+\item  Chain rule
+\item  Numerical gradient
+\item  Recursion
+\end{enumerate}
+\begin{mdframed}
+Answer: c
+\end{mdframed}
+\item
+What is the most common non-linear activation used in deep neural networks? (Circle all answers that are correct.)
+\begin{enumerate}
+\item  Sigmoid
+\item  TanH
+\item  Convolution
+\item  ReLU
+\end{enumerate}
+\begin{mdframed}
+Answer: d
+\end{mdframed}
+\item
+An ``autoencoder'' is: (Circle all answers that are correct.)
+\begin{enumerate}
+\item  similar to an autoimmune system in biological systems.
+\item similar to data compression in image and speech processing.
+\item used solely in autonomous systems such as self-driving cars and aircraft.
+\item  useful for finding lower dimensional features in a machine learning problem.
+\end{enumerate}
+\begin{mdframed}
+Answer: b,d
+\end{mdframed}
+\item
+The ReLU activation function: (Circle all answers that are correct.)
+\begin{enumerate}
+\item is differentiable everywhere.
+\item is bounded.
+\item has a bounded derivative.
+\item  is the only way to find low dimensional features in a machine learning problem.
+\end{enumerate}
+\begin{mdframed}
+Answer: c
+\end{mdframed}
+
+\item
+Which deep learning architecture typically has the most number of layers? (Circle all answers that are correct.)
+\begin{enumerate}
+\item  VGG
+\item  AlexNet
+\item  ResNet
+\item  GoogLeNet
+\end{enumerate}
+\begin{mdframed}
+Answer: c
+\end{mdframed}
+\item
+The ``one hot'' method of encoding a feature is useful: (Circle all answers that are correct.)
+\begin{enumerate}
+\item for encoding categorical features.
+\item because it controls the cooling temperature in simulated annealing searches for optimal parameters.
+\item for converting real valued features into integers.
+\item  because it allows ReLU activations to be used in deep networks.
+\end{enumerate}
+\begin{mdframed}
+Answer: a
+\end{mdframed}
+\item
+Assume your CNN has three layers:  
+\begin{itemize}
+\item  Layer 1: 6, 5x5x3 filters with stride 1
+\item  Layer 2: 6, 5x5x6 filters with stride 1
+\item  Layer 3: 5, 8x8x6 filters with stride 2
+\end{itemize}
+If you apply this network on an image on a 32x32 pixel image with 3 channels (RGB) and one pixel zero padding, what is the size of the output tensor?  
+\vspace{0.2in}
+
+Write your answer here:  \underline{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}.  
+\begin{mdframed}
+Answer: 10x10x5
+\end{mdframed}
+\item
+A 2-class classification problem involves a data set with supervised training data:
+$$\mathscr{D} = \{ (f_i,c_i)| ~f_i \in R^n, c_i =0~or~c_i=1, 1 \leq i \leq N\}. $$
+It is discovered that one of the features in all of the $f_i$ is less than -10 when $c_i=1$ but
+greater than 5 when $c_i=0$.  In this situation, the classification problem : (Circle all answers that are correct.)
+\begin{enumerate}
+\item is linearly separable.
+\item can be easily solved using a quadratic SVM.
+\item can be easily solved using a linear SVM.
+\item can be easily solved with a decision tree but only if three or more splits are used.
+\item  is trivial using a simple one nearest neighbor classification approach.
+\end{enumerate}
+\begin{mdframed}
+Answer: a,b,c
+\end{mdframed}
+\item
+The computational complexity (that is, the number of operations) of using dynamic programing to solve the minimum edit distance between two strings of sizes $n$ and $m$ is proportional to: (Circle all answers that are correct.)
+\begin{enumerate}
+\item  $n+m$
+\item $nm$
+\item $\log(nm)$
+\item  $nm\log(nm)$
+\end{enumerate}
+\begin{mdframed}
+Answer: b
+\end{mdframed}
+
+\item {\bf (Extra credit.)}
+You are using a CNN to determine whether an image contains
+a dog, a cat, {\em and/or} a duck or none of these animals. These are the same classes as in question 2, but in a multi-label setting now. That is, zero, one, or more class-labels may be associated to each input example. How would you modify the last layer of your network from question 2 to model this problem? Please specify the number of units and the activation function.
+
+\vspace{0.1in}
+
+Write your answer below.
+\vspace{0.2in}
+
+~~~~~~~~~~~~~Number of units: ~~~~\underline{~~~~~~~~~~~~~~~~~~~~~~}
+
+\vspace{0.3in}
+
+~~~~~~~~~~~~~Activation function: \underline{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
+\begin{mdframed}
+Answer:  3 units, each sigmoidal
+\end{mdframed}
+\end{enumerate}
+\end{document}
